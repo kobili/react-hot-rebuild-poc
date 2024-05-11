@@ -6,13 +6,15 @@ import (
 	"regexp"
 )
 
-func main() {
-	fs := http.FileServer(http.Dir("./static"))
-
+/*
+Serves a static React Router app. Handles the case where the client refreshes on a URL
+set client side by the React Router Javascript.
+*/
+func serveReactRouterApp(fs http.Handler) http.HandlerFunc {
 	// Regex to check if a string ends in a file extension (.js, .css, etc)
 	fileMatcher := regexp.MustCompile(`\.[a-zA-Z]*$`)
 
-	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
+	fn := func(w http.ResponseWriter, req *http.Request) {
 		if req.Method != "GET" {
 			w.WriteHeader(http.StatusMethodNotAllowed)
 			return
@@ -26,7 +28,15 @@ func main() {
 			// This is still necessary as the frontend will still expect javascript and css to be served
 			fs.ServeHTTP(w, req)
 		}
-	})
+	}
+
+	return http.HandlerFunc(fn)
+}
+
+func main() {
+	fs := http.FileServer(http.Dir("./static"))
+
+	http.HandleFunc("/", serveReactRouterApp(fs))
 
 	http.HandleFunc("/api", func(w http.ResponseWriter, r *http.Request) {
 		method := r.Method
