@@ -26,7 +26,7 @@ function App() {
           This page is served statically through a Go HTTP server.
         </p>
         <p>
-          Edit <code>src/App.jsx</code> and save it to trigger an automatic rebuild of the static assets.
+          Edit anything under <code>frontend/src/</code> and save it to trigger an automatic rebuild of the static assets.
         </p>
       </div>
       <p className="read-the-docs">
