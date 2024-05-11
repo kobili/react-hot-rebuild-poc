@@ -21,3 +21,6 @@ The static files are then served by a Go HTTP server.
     ```shell
     make start-server
     ```
+
+## Todos
+- Have the build + watch process run in a docker container
