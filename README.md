@@ -1,3 +1,6 @@
+# JUST USE `vite build --watch` 👍
+
+
 # React Hot Rebuild POC
 This project demonstrates the use of [`watchfiles`](https://pypi.org/project/watchfiles/)
 to trigger automatic rebuilds of a React app when its source file changes.
