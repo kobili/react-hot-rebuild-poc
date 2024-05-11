@@ -1,29 +1,19 @@
-# JUST USE `vite build --watch` 👍
-
-
 # React Hot Rebuild POC
-This project demonstrates the use of [`watchfiles`](https://pypi.org/project/watchfiles/)
+This project demonstrates the use of the `--watch` flag when using Vite's build system
 to trigger automatic rebuilds of a React app when its source file changes.
 
 The static files are then served by a Go HTTP server.
 
 ## Requirements
-- Python v3.8 - 3.12 per watchfiles requirement
+- Docker
 - Go v1.21.1+, but that's just what I developed with
 
 ## Setup
-- install `watchfiles` using pip.
+- Build  and watch the UI by running
     ```shell
-    pip install watchfiles
-    ```
-- Build and start watching by running
-    ```shell
-    ./watchbuild.sh
+    make build-ui
     ```
 - Start the HTTP server
     ```shell
     make start-server
     ```
-
-## Todos
-- Have the build + watch process run in a docker container
