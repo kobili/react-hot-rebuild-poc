@@ -22,7 +22,10 @@ function App() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          This page is served statically through a Go HTTP server.
+        </p>
+        <p>
+          Edit <code>src/App.jsx</code> and save it to trigger an automatic rebuild of the static assets.
         </p>
       </div>
       <p className="read-the-docs">
